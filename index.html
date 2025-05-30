@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="km">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration Form</title>
+    <title>ទម្រង់ចុះឈ្មោះ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Hanuman:wght@100;300;400;700;900&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,13 +13,14 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Hanuman', serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             padding: 20px;
+            line-height: 1.6;
         }
 
         .container {
@@ -41,7 +43,7 @@
         h1 {
             color: #333;
             margin-bottom: 30px;
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             font-weight: 700;
             background: linear-gradient(135deg, #667eea, #764ba2);
             -webkit-background-clip: text;
@@ -56,10 +58,10 @@
 
         label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             color: #555;
             font-weight: 600;
-            font-size: 0.95rem;
+            font-size: 1.1rem;
         }
 
         input[type="text"],
@@ -68,7 +70,8 @@
             padding: 15px 20px;
             border: 2px solid #e1e5e9;
             border-radius: 12px;
-            font-size: 1rem;
+            font-size: 1.1rem;
+            font-family: 'Hanuman', serif;
             background: #f8f9fa;
             transition: all 0.3s ease;
             outline: none;
@@ -88,8 +91,9 @@
             border: none;
             padding: 15px 40px;
             border-radius: 12px;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             font-weight: 600;
+            font-family: 'Hanuman', serif;
             cursor: pointer;
             transition: all 0.3s ease;
             width: 100%;
@@ -131,7 +135,7 @@
 
         .success-text {
             color: #333;
-            font-size: 1.3rem;
+            font-size: 1.5rem;
             margin-bottom: 30px;
             font-weight: 600;
         }
@@ -145,8 +149,9 @@
             text-decoration: none;
             padding: 15px 30px;
             border-radius: 12px;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             font-weight: 600;
+            font-family: 'Hanuman', serif;
             transition: all 0.3s ease;
             gap: 10px;
         }
@@ -173,8 +178,8 @@
 
         .error-message {
             color: #dc3545;
-            font-size: 0.9rem;
-            margin-top: 5px;
+            font-size: 1rem;
+            margin-top: 8px;
             display: none;
         }
 
@@ -218,7 +223,15 @@
             }
             
             h1 {
-                font-size: 2rem;
+                font-size: 2.2rem;
+            }
+            
+            label {
+                font-size: 1rem;
+            }
+            
+            .success-text {
+                font-size: 1.3rem;
             }
         }
     </style>
@@ -226,22 +239,22 @@
 <body>
     <div class="container">
         <div id="registrationForm">
-            <h1>Join Us</h1>
+            <h1>ចូលរួមជាមួយយើង</h1>
             <form id="regForm">
                 <div class="form-group">
-                    <label for="name">Full Name</label>
-                    <input type="text" id="name" name="name" required>
-                    <div class="error-message" id="nameError">Please enter your full name</div>
+                    <label for="name">ឈ្មោះពេញ</label>
+                    <input type="text" id="name" name="name" required placeholder="បញ្ចូលឈ្មោះពេញរបស់អ្នក">
+                    <div class="error-message" id="nameError">សូមបញ្ចូលឈ្មោះពេញរបស់អ្នក</div>
                 </div>
                 
                 <div class="form-group">
-                    <label for="phone">Phone Number</label>
-                    <input type="tel" id="phone" name="phone" required>
-                    <div class="error-message" id="phoneError">Please enter a valid phone number</div>
+                    <label for="phone">លេខទូរស័ព្ទ</label>
+                    <input type="tel" id="phone" name="phone" required placeholder="បញ្ចូលលេខទូរស័ព្ទរបស់អ្នក">
+                    <div class="error-message" id="phoneError">សូមបញ្ចូលលេខទូរស័ព្ទត្រឹមត្រូវ</div>
                 </div>
                 
                 <button type="submit" class="submit-btn" id="submitBtn">
-                    <span id="submitText">Register Now</span>
+                    <span id="submitText">ចុះឈ្មោះឥឡូវនេះ</span>
                     <div class="loading" id="loadingSpinner" style="display: none;"></div>
                 </button>
             </form>
@@ -249,17 +262,17 @@
 
         <div class="success-message" id="successMessage">
             <div class="success-icon">✅</div>
-            <div class="success-text">Registration Successful!</div>
+            <div class="success-text">ចុះឈ្មោះបានជោគជ័យ!</div>
             <a href="https://t.me/your_telegram_channel" class="telegram-btn" target="_blank">
                 <span class="telegram-icon">📱</span>
-                Join Now on Telegram
+                ចូលរួមនៅលើ Telegram
             </a>
         </div>
     </div>
 
     <script>
         // Configuration - Replace with your Google Apps Script Web App URL
-        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyTErHkCW7ePRFFgPLX07Kn9xV6uXRua-snUHKrIy2YWZ2CKbhlqfNT1-ZnYvMhZ2CBBA/exec';
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyVSuem0kr2_gEndaq1g5BEQPX65_kZ7ENm3NcXTt41_r8zFL6Ii-XBE72kylO7XnXnmw/exec';
         
         // Replace with your actual Telegram link
         const TELEGRAM_LINK = 'https://t.me/+i8nQXcyr7Dk4NWNl';
@@ -293,7 +306,7 @@
                 formData.append('phone', phoneInput.value.trim());
                 formData.append('timestamp', new Date().toISOString());
                 
-                // Submit to Google Sheets (you'll need to replace this URL)
+                // Submit to Google Sheets
                 const response = await fetch(GOOGLE_SCRIPT_URL, {
                     method: 'POST',
                     body: formData
@@ -307,7 +320,7 @@
                 
             } catch (error) {
                 console.error('Error:', error);
-                alert('Registration failed. Please try again.');
+                alert('ការចុះឈ្មោះបរាជ័យ។ សូមព្យាយាមម្តងទៀត។');
                 
                 // Reset button state
                 submitBtn.disabled = false;
@@ -323,14 +336,14 @@
             
             // Validate name
             if (name.length < 2) {
-                showError('nameError', 'Please enter a valid full name');
+                showError('nameError', 'សូមបញ្ចូលឈ្មោះពេញត្រឹមត្រូវ');
                 isValid = false;
             }
             
             // Validate phone (basic validation)
             const phoneRegex = /^[\+]?[\d\s\-\(\)]{8,}$/;
             if (!phoneRegex.test(phone)) {
-                showError('phoneError', 'Please enter a valid phone number');
+                showError('phoneError', 'សូមបញ្ចូលលេខទូរស័ព្ទត្រឹមត្រូវ');
                 isValid = false;
             }
             
